@@ -3,7 +3,8 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [thoughtInput, setthoughtInput] = useState("");
+  const [questionInput, setquestionInput] = useState("");
+  const [answerInput, setanswerInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -14,7 +15,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ thought: thoughtInput }),
+        body: JSON.stringify({ question: questionInput },{answer: answerInput}),
       });
 
       const data = await response.json();
@@ -23,7 +24,7 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setthoughtInput("");
+      setquestionInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -34,22 +35,29 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Teserract</title>
+        <title>EGS</title>
         <link rel="icon" href="/warp.png" />
       </Head>
 
       <main className={styles.main}>
         <img src="/warp.png" className={styles.icon} />
-        <h3>Input possible future</h3>
+        <h3>Exam grading system</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="thought"
-            placeholder="Enter an thought"
-            value={thoughtInput}
-            onChange={(e) => setthoughtInput(e.target.value)}
+            name="question"
+            placeholder="Enter the Question"
+            value={questionInput}
+            onChange={(e) => setquestionInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input
+            type="text"
+            name="answer"
+            placeholder="Enter the Answer"
+            value={answerInput}
+            onChange={(e) => setanswerInput(e.target.value)}
+          />
+          <input type="submit" value="Generate the score" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>

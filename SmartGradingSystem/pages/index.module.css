@@ -6,6 +6,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "ColfaxAI";
   src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
@@ -18,13 +19,12 @@
 .main input {
   font-size: 16px;
   line-height: 24px;
-  color: #61dbfb; /* set the main color */
+  color: #333333;
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
 
-/* modify the background and accent colors */
 .body {
-  background-color: black;
+  background-color: #f0f0f0;
 }
 
 .main {
@@ -39,45 +39,57 @@
 }
 
 .main h3 {
-  font-size: 32px;
-  line-height: 40px;
+  font-size: 28px;
+  line-height: 36px;
   font-weight: bold;
-  color: #61dbfb; /* set the main color */
+  color: #000000;
   margin: 16px 0 40px;
 }
 
 .main form {
   display: flex;
   flex-direction: column;
-  width: 320px;
+  width: 600px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .main input[type="text"] {
   padding: 12px 16px;
-  border: 1px solid #61dbfb; /* set the accent color */
+  border: 2px solid #000000;
   border-radius: 4px;
   margin-bottom: 24px;
-  outline-color: #61dbfb; /* set the accent color */
-  background-color: black; /* set the background color */
-  color: #61dbfb; /* set the accent color */
+  outline-color: #000000;
+  background-color: #f0f0f0;
+  color: #333333;
+  font-weight: bold;
 }
 
 .main ::placeholder {
-  color: #8e8ea0;
-  opacity: 1;
+  color: #666666;
 }
 
 .main input[type="submit"] {
   padding: 12px 0;
-  color: #fff;
-  background-color: #61dbfb; /* set the accent color */
+  color: #ffffff;
+  background-color: #000000;
   border: none;
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .main .result {
-  font-weight: bold;
-  margin-top: 40px;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 600px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }

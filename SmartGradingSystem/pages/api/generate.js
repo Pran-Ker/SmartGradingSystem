@@ -15,11 +15,12 @@ export default async function (req, res) {
     return;
   }
 
-  const thought = req.body.thought || '';
-  if (thought.trim().length === 0) {
+  const question = req.body.question || '';
+  // const answer = req.body.answer || '';
+  if (question.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid thought",
+        message: "Please enter a valid question",
       }
     });
     return;
@@ -28,8 +29,9 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(thought),
+      prompt: generatePrompt(question),
       temperature: 0.6,
+      max_tokens:200
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -48,15 +50,9 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(thought) {
-  const capitalizedthought =
-    thought[0].toUpperCase() + thought.slice(1).toLowerCase();
-  return `Suggest three names for an thought that is a superhero.
-
-thought: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-thought: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-thought: ${capitalizedthought}
-Names:`;
+function generatePrompt(question) {
+  
+  return `Imagine you are a strict teacher in a college. You asked your student the following question: "${question}". Here's their answer:".\n\nOn a scale of 1-10, how accurate is their answer? Have they covered all the necessary points? Please provide feedback and tips on how they could improve their answer.\n\nScore: /10 \n(on new line) Feedback: \n(on new line) Tips for improvement: `;
 }
+
+// 
