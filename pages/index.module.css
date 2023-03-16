@@ -104,6 +104,11 @@
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 1px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.main input[type="submit"]:hover {
+  background-color: #0086e5e1;
 }
 
 .main .result {
