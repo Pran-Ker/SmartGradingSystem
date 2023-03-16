@@ -67,6 +67,17 @@
   font-weight: bold;
 }
 
+.main textarea[type="text"] {
+  padding: 12px 16px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  outline-color: #000000;
+  background-color: #f0f0f0;
+  color: #333333;
+  font-weight: bold;
+}
+
 .main ::placeholder {
   color: #666666;
 }

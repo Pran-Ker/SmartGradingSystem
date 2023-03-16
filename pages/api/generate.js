@@ -16,7 +16,7 @@ export default async function (req, res) {
   }
 
   const question = req.body.question || '';
-  // const answer = req.body.answer || '';
+  const answer = req.body.answer || '';
   if (question.trim().length === 0) {
     res.status(400).json({
       error: {
@@ -29,13 +29,13 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(question),
+      prompt: generatePrompt(question, answer),
       temperature: 0.6,
       max_tokens:200
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
-    // Consider adjusting the error handling logic for your use case
+
     if (error.response) {
       console.error(error.response.status, error.response.data);
       res.status(error.response.status).json(error.response.data);
@@ -50,9 +50,9 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(question) {
+function generatePrompt(question, answer) {
   
-  return `Imagine you are a strict teacher in a college. You asked your student the following question: "${question}". Here's their answer:".\n\nOn a scale of 1-10, how accurate is their answer? Have they covered all the necessary points? Please provide feedback and tips on how they could improve their answer.\n\nScore: /10 \n(on new line) Feedback: \n(on new line) Tips for improvement: `;
+  return `Imagine you are a teacher in a college. You asked your student the following question: "${question}". Here's their answer:"${answer}".\n\n\nFormat of reply:\nScore: /10 \nFeedback: \nTips for improvement:`;
 }
 
 // 

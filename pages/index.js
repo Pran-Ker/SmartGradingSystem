@@ -3,8 +3,8 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [questionInput, setquestionInput] = useState("");
-  const [answerInput, setanswerInput] = useState("");
+  const [questionInput, setQuestionInput] = useState("");
+  const [answerInput, setAnswerInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -15,7 +15,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ question: questionInput },{answer: answerInput}),
+        body: JSON.stringify({ question: questionInput, answer: answerInput }),
       });
 
       const data = await response.json();
@@ -24,9 +24,9 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setquestionInput("");
-    } catch(error) {
-      // Consider implementing your own error handling logic here
+      setQuestionInput("");
+      setAnswerInput("");
+    } catch (error) {
       console.error(error);
       alert(error.message);
     }
@@ -48,17 +48,22 @@ export default function Home() {
             name="question"
             placeholder="Enter the Question"
             value={questionInput}
-            onChange={(e) => setquestionInput(e.target.value)}
+            onChange={(e) => setQuestionInput(e.target.value)}
           />
-          <input
+          <textarea
             type="text"
             name="answer"
             placeholder="Enter the Answer"
             value={answerInput}
-            onChange={(e) => setanswerInput(e.target.value)}
+            onChange={(e) => setAnswerInput(e.target.value)}
+            rows={Math.max(Math.ceil(answerInput.length / 50), 3)}
           />
+
           <input type="submit" value="Generate the score" />
         </form>
+        <h3>or</h3>
+        
+
         <div className={styles.result}>{result}</div>
       </main>
     </div>
