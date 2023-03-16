@@ -1,44 +1,47 @@
-# OpenAI API Quickstart - Node.js example app
+# Automated Paper Grading System
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
+This is an automated paper grading system built in Node.js, designed to understand examination papers using OCR, take answer keys from professors, and provide a score for each answer.
 
-![Text box that says name my pet with an icon of a dog](https://user-images.githubusercontent.com/10623307/213887080-b2bc4645-7fdb-4dbd-ae42-efce00d0dc29.png)
+## Features
 
+- Object Character Recognition (OCR) functionality to convert handwritten English from an image into text.
+- Natural Language Processing (NLP) unit to compare inputted data with corresponding answers in exam sheets.
+- Machine learning model to predict the score of an essay based on features extracted from preprocessed data.
+- Domain ontology generation for creating a representation of concepts and relationships in essays.
+- Web interface built with Django, HTML, CSS, and JavaScript for performing the grading process.
+- Mobile application in development.
+- Hosting on an online server.
 
-## Setup
+## Prerequisites
 
-1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/) (Node.js version >= 14.6.0 required)
+- Node.js
+- Python 3
+- Django
 
-2. Clone this repository
+## Installation
 
-3. Navigate into the project directory
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. Run the server with `node app.js`.
 
-   ```bash
-   $ cd openai-quickstart-node
-   ```
+## Usage
 
-4. Install the requirements
+1. Access the web interface in a browser at `http://localhost:3000`.
+2. Upload a scanned exam sheet in image format.
+3. Process the image using OCR and NLP to compare answers with the corresponding answer key.
+4. Receive a score for each answer.
 
-   ```bash
-   $ npm install
-   ```
+## Future Improvements
 
-5. Make a copy of the example environment variables file
+- Incorporate OCR functionality into the web interface.
+- Add more essay-related functionality to the web interface.
+- Complete development of the mobile application.
+- Host the website on an online server.
 
-   On Linux systems: 
-   ```bash
-   $ cp .env.example .env
-   ```
-   On Windows:
-   ```powershell
-   $ copy .env.example .env
-   ```
-6. Add your [API key](https://platform.openai.com/account/api-keys) to the newly created `.env` file
+## Contributors
 
-7. Run the app
+- Prannay Hebbar
 
-   ```bash
-   $ npm run dev
-   ```
+## License
 
-You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind this example app, check out the [tutorial](https://platform.openai.com/docs/quickstart).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
