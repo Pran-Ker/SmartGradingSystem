@@ -58,11 +58,15 @@ export default function Home() {
             onChange={(e) => setAnswerInput(e.target.value)}
             rows={Math.max(Math.ceil(answerInput.length / 50), 3)}
           />
-
           <input type="submit" value="Generate the score" />
         </form>
-        <h3>or</h3>
-        
+
+        <h3>OR</h3>
+        <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="image" class="file-upload">Upload Exam Sheet:</label>
+          <input type="file" id="image" name="image"></input>
+          <input type="submit" value="Generate the score" />
+        </form>
 
         <div className={styles.result}>{result}</div>
       </main>
