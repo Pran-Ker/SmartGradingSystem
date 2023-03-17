@@ -15,11 +15,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).single('image');
 
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+// app.get('/', (req, res) => {
+//   res.render('index');
+// });
 
 app.post('/upload', (req, res) => {
   upload(req, res, err => {
