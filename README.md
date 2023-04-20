@@ -21,8 +21,9 @@ This is an automated paper grading system built in Node.js, designed to understa
 ## Installation
 
 1. Clone the repository.
-2. Install dependencies with `npm install`.
-3. Run the server with `node app.js`.
+2. Create a .env file with your OpenAI API key, in the format of ` OPENAI_API_KEY= `
+3. Install dependencies with `npm install`.
+4. Run the server with `npm run dev`.
 
 ## Usage
 
