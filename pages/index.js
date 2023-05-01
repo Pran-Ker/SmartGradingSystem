@@ -41,7 +41,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/warp.png" className={styles.icon} />
-        <h3>Exam grading system</h3>
+        <h3>Exam Grading System</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
